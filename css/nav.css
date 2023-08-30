@@ -48,7 +48,11 @@
     overflow: hidden;
 }
 
-#navbar.open ul {max-height: 150px;}
+#navbar.open ul {
+    max-height: 150px;
+    transition: max-height .3s ease;
+    margin-top: 1rem;
+}
 
 #navbar li {
     list-style: none;
