@@ -1,4 +1,6 @@
-#navbar {box-shadow: 0px 0px 10px 1px var(--gray3);}
+#navbar {
+    box-shadow: 0px 0px 10px 1px var(--gray3);
+}
 
 #navbar div {
     display: flex;
@@ -18,7 +20,10 @@
     transition: color .3s ease, color .3s ease;
 }
 
-#navbar div img {margin-right: .5rem;}
+
+#navbar div img {
+    margin-right: .5rem;
+}
 
 #navbar button {
     background-color: transparent;
@@ -30,28 +35,27 @@
     cursor: pointer;
 }
 
+
 #navbar.open button {
     background-color: var(--black);
-    color: var(--white);
+    color: var(--white);    
     border-radius: 2rem;
 }
 
 #navbar ul {
-    background: linear-gradient(var(--primary), var(--primary-dark));
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(var(--primary),var(--primary-dark));
+    border-top: 1px solid rgba(255,255,255,0.1);
     padding: 0;
     margin: 0;
     max-height: 0;
     transition: max-height .3s ease;
     position: absolute;
-    width:  100%;
+    width: 100%;
     overflow: hidden;
 }
 
 #navbar.open ul {
     max-height: 150px;
-    transition: max-height .3s ease;
-    margin-top: 1rem;
 }
 
 #navbar li {
@@ -64,8 +68,9 @@
     padding: 10px 15px;
     text-decoration: none;
     color: var(--white);
-    transition: color .3s ease, background-color .3 ease;
+    transition: color .3s ease, background-color .3s ease;
 }
+
 
 #navbar ul a:hover,
 #navbar ul a:focus {
@@ -78,4 +83,12 @@
     width: 100%;
     top: 0;
     z-index: 100;
+}
+
+#toggle:hover {
+    background-color: var(--black);
+}
+
+#active {
+    background-color: var(--primary-dark);
 }
