@@ -30,6 +30,10 @@ form button {
     cursor: pointer;
     transition: background-color .3s ease;
 }
+form button > svg {
+    max-width: 3rem;
+    margin: .5rem;
+}
 
 form button:hover {background-color: var(--secondary-dark);}
 
