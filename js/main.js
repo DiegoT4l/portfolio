@@ -46,7 +46,7 @@
                 title: 'License Key Generator',
                 description: 'Licenses is a web application that allows you to create and manage your licenses.',
                 image: 'img/projects/licenses.png',
-                url: 'https://licenses.diegot4l.com/',
+                url: 'https://licencias.diegot4l.com/',
                 github: 'https://github.com/DiegoT4l/License-Key-Generator'
             },
             blogCafe: {
