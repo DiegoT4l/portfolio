@@ -22,7 +22,7 @@ textarea {resize: none;}
 
 form button {
     background-color: var(--secondary-dark);
-    color: var(--white);
+    color: #212222;
     margin: 3rem;
     border: none;
     padding: 1rem;
