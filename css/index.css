@@ -1,6 +1,7 @@
 @import "../node_modules/normalize.css/normalize.css";
 @import "../node_modules/eins-modal/dist/css/eins-modal.min.css";
 @import "./fonts.css";
+@import "./utils.css";
 @import "./main.css";
 @import "./nav.css";
 @import "./header.css";

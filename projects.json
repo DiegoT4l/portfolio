@@ -1,0 +1,16 @@
+{
+    "blogCafe": {
+        "title": "Blog de Cafe",
+        "description": "El Blog de Café es un proyecto educativo que simula una plataforma web dedicada a los amantes del café. Su propósito es demostrar habilidades en desarrollo web y proporcionar un entorno interactivo donde los entusiastas del café pueden aprender sobre diferentes aspectos de esta apasionante bebida.",
+        "image": "./assets/img/portfolio/project-blogcafe.svg",
+        "url": "https://blogcafe.diegot4l.com/",
+        "github": "https://github.com/DiegoT4l/BlogdeCafe"
+    },
+    "licenses": {
+        "title": "License Key Generator",
+        "description": "La aplicación permite al usuario especificar el número de llaves de licencia que desea generar, así como elegir si estas deben incluir letras mayúsculas, minúsculas y/o números. Una vez ingresadas estas preferencias, al hacer clic en el botón \"Generar Llaves\", se producirán las llaves de manera aleatoria.",
+        "image": "./assets/img/portfolio/project-licenses.svg",
+        "url": "https://licencias.diegot4l.com/",
+        "github": "https://github.com/DiegoT4l/License-Key-Generator"
+    }
+}

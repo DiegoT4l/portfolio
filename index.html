@@ -34,7 +34,7 @@
         <h2>Desarrollador Frontend</h2>
         <video src="https://drive.google.com/uc?export=view&id=14Kxv_VctZHyYUzrkNkggXutGfyk5t2MW" autoplay loop muted playsinline>
             <source src="https://drive.google.com/uc?export=view&id=14Kxv_VctZHyYUzrkNkggXutGfyk5t2MW" type="video/mp4">
-            <track src="./src/captions_en.vtt" kind="captions" srclang="en" label="english_captions">
+            <track src="./captions_en.vtt" kind="captions" srclang="en" label="english_captions">
         </video>
     </header>
     <nav id="navbar">
@@ -57,15 +57,15 @@
             <h3>Portfolio</h3>
             <hr />
             <div class="container">
-                <button class="project__link" data-project="licenses" data-modal-id="myModal">
+                <button class="project__button" data-project="licenses" data-modal-id="myModal">
                     <img src="https://cdn.discordapp.com/attachments/1123647915609555044/1164750474944188416/image.png?ex=65445969&is=6531e469&hm=558f6d0b66c608c82ec3535b63341e90ed7157a1328c1dcdd4c6ac68a973fadf&" alt="project image to preview"/>
                     <h4>License Key Generator</h4>
                 </button>
-                <button class="project__link" data-project="blogCafe" data-modal-id="myModal">
+                <button class="project__button" data-project="blogCafe" data-modal-id="myModal">
                     <img src="https://cdn.discordapp.com/attachments/1123647915609555044/1164382752209117255/image.png?ex=654302f1&is=65308df1&hm=c5b5492d9fc73d5e4b827da28da54a353d6c993aba8fd2d8eb882cbe9afcae06&" alt="project image to preview"/>
                     <h4>Blog de Café</h4>
                 </button>
-                <button class="project__link" data-project="recipebook" data-modal-id="myModal">
+                <button class="project__button" data-project="recipebook" data-modal-id="myModal">
                     <img src="assets/img/portfolio/3.png" alt="project image to preview"/>
                     <h4>Proyecto 3</h4>
                 </button>
@@ -164,7 +164,7 @@
     </footer>
 
     <!-- Modal -->
-    <div id="myModal" class="eins-modal">
+    <div id="myModal" class="eins-modal eins-modal-lg">
         <div class="eins-modal-content">
             <div class="eins-modal-close"></div>
             <div id="modalContent"><!-- content --></div>

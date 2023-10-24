@@ -23,8 +23,8 @@ module.exports = {
         new HtmlWebpackPlugin({ template: './index.html' }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'src/projects.json', to: 'projects.json' },
-                { from: 'src/captions_en.vtt', to: 'captions_en.vtt' }
+                { from: './projects.json', to: 'projects.json' },
+                { from: './captions_en.vtt', to: 'captions_en.vtt' }
             ]
         })
     ],

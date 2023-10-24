@@ -40,11 +40,14 @@
 })();
 
 (function () {
-    function getProjectsFromJSON(callback) {
-        fetch('./projects.json')
-            .then(response => response.json())
-            .then(data => callback(data))
-            .catch(error => console.error('Error al cargar proyectos:', error));
+    async function getProjectsFromJSON(callback) {
+        try {
+            const response = await fetch('./projects.json');
+            const data = await response.json();
+            callback(data);
+        } catch (error) {
+            console.error('Error al cargar proyectos:', error);
+        }
     }
 
     function getProjectofPortfolio(project, projects) {
@@ -85,14 +88,14 @@
         const projectElement = createProject(projectSelected);
         const projectsContainer = document.querySelector('#modalContent');
 
-        projectsContainer.innerHTML = '';
-        projectsContainer.appendChild(projectElement);
+        projectsContainer.innerHTML = ''; // Limpiamos el contenedor
+        projectsContainer.appendChild(projectElement); // Agregamos el proyecto
     }
 
     getProjectsFromJSON(function(projects) {
-        const projectLinks = document.querySelectorAll('.project__link');
+        const projectLinks = document.querySelectorAll('.project__button');
 
-        projectLinks.forEach(projectLink => {
+        projectLinks.forEach(projectLink => { // Agregamos el evento a cada link
             projectLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 const projectId = e.target.dataset.project;
