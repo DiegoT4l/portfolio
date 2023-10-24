@@ -13,8 +13,8 @@
 
 #skillset img {
     border-radius: 1rem;
-    min-width: 3rem;
-    max-width: 7rem;
+    width: 70px;
+    height: 70px;
     cursor: context-menu;
 }
 

@@ -84,11 +84,8 @@
         const projectSelected = getProjectofPortfolio(projectId, projects);
         const projectElement = createProject(projectSelected);
         const projectsContainer = document.querySelector('#modalContent');
-        
-        // Limpiar contenido previo
-        projectsContainer.innerHTML = '';
 
-        // Añadir el nuevo proyecto
+        projectsContainer.innerHTML = '';
         projectsContainer.appendChild(projectElement);
     }
 

@@ -21,7 +21,7 @@ input:focus, textarea:focus {
 textarea {resize: none;}
 
 form button {
-    background-color: var(--secondary);
+    background-color: var(--secondary-dark);
     color: var(--white);
     margin: 3rem;
     border: none;
@@ -35,7 +35,7 @@ form button > svg {
     margin: .5rem;
 }
 
-form button:hover {background-color: var(--secondary-dark);}
+form button:hover {background-color: var(--secondary);}
 
 #social-media img {
     border-radius: 10rem;
