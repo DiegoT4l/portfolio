@@ -21,12 +21,12 @@ module.exports = {
             cleanStaleWebpackAssets: false
         }),
         new HtmlWebpackPlugin({ template: './index.html' }),
-        new CopyWebpackPlugin({ patterns: [{ from: './projects.json', to: 'projects.json' }] }),
-        new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false
-        }),
-        new HtmlWebpackPlugin({ template: './index.html' })
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/projects.json', to: 'projects.json' },
+                { from: 'src/captions_en.vtt', to: 'captions_en.vtt' }
+            ]
+        })
     ],
     module: {
         rules: [
@@ -56,5 +56,4 @@ module.exports = {
             new TerserPlugin()
         ]
     },
-
 }
