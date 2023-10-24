@@ -40,44 +40,30 @@
 })();
 
 (function () {
-    function getProjectofPortfolio(project) {
-        const projects = {
-            licenses: {
-                title: 'License Key Generator',
-                description: 'Licenses is a web application that allows you to create and manage your licenses.',
-                image: 'img/projects/licenses.png',
-                url: 'https://licencias.diegot4l.com/',
-                github: 'https://github.com/DiegoT4l/License-Key-Generator'
-            },
-            blogCafe: {
-                title: 'Blog de Café',
-                description: 'Blog Café is a web application that allows you to create and manage your blog.',
-                image: 'img/projects/blog-cafe.png',
-                url: 'https://blogcafe.diegot4l.com/',
-                github: 'https://github.com/DiegoT4l/BlogdeCafe'
-            },
-            error: {
-                title: 'Error',
-                description: 'No se encontró el proyecto, intenta de nuevo'
-            }
-        }
-        
-        const projectSelected = projects[project] || projects.error;
+    function getProjectsFromJSON(callback) {
+        fetch('./projects.json')
+            .then(response => response.json())
+            .then(data => callback(data))
+            .catch(error => console.error('Error al cargar proyectos:', error));
+    }
+
+    function getProjectofPortfolio(project, projects) {
+        const projectSelected = projects[project];
         return projectSelected;
     }
 
-    function createProject(project) {
-        const projectSelected = getProjectofPortfolio(project);
+    function createProject(projectSelected) {
         const projectElement = document.createElement('div');
         projectElement.classList.add('project');
 
-        if (projectSelected.title === 'Error') {
+        if (!projectSelected) {
             projectElement.innerHTML = `
-                <h3 class="project__title" style="color: red;">${projectSelected.title}</h3>
-                <p class="project__description">${projectSelected.description}</p>
+                <h3 class="project__title" style="color: red;">Error</h3>
+                <p class="project__description">No se encontró el proyecto, intenta de nuevo.</p>
             `;
             return projectElement;
         }
+
         projectElement.innerHTML = `
             <div class="project__image">
                 <img src="${projectSelected.image}" alt="${projectSelected.title}">
@@ -94,19 +80,27 @@
         return projectElement;
     }
 
-    function renderProject(project) {
-        const projectElement = createProject(project);
+    function renderProject(projectId, projects) {
+        const projectSelected = getProjectofPortfolio(projectId, projects);
+        const projectElement = createProject(projectSelected);
         const projectsContainer = document.querySelector('#modalContent');
+        
+        // Limpiar contenido previo
         projectsContainer.innerHTML = '';
+
+        // Añadir el nuevo proyecto
         projectsContainer.appendChild(projectElement);
     }
 
-    const projects = document.querySelectorAll('.project__link');
-    projects.forEach(project => {
-        project.addEventListener('click', (e) => {
-            e.preventDefault();
-            const project = e.target.dataset.project;
-            renderProject(project);
+    getProjectsFromJSON(function(projects) {
+        const projectLinks = document.querySelectorAll('.project__link');
+
+        projectLinks.forEach(projectLink => {
+            projectLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = e.target.dataset.project;
+                renderProject(projectId, projects);
+            });
         });
     });
 })();

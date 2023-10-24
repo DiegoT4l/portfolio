@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -15,6 +16,12 @@ module.exports = {
         clean: false
     },
     plugins: [
+        new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
+        new CleanWebpackPlugin({
+            cleanStaleWebpackAssets: false
+        }),
+        new HtmlWebpackPlugin({ template: './index.html' }),
+        new CopyWebpackPlugin({ patterns: [{ from: './projects.json', to: 'projects.json' }] }),
         new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
