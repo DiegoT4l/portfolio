@@ -1,17 +1,26 @@
 #skillset > div {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
     margin: 1rem;
+}
+@media (min-width: 768px) {
+    #skillset > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 #skillset img {
     border-radius: 1rem;
+    min-width: 3rem;
     max-width: 7rem;
     cursor: context-menu;
 }
 
-#skillset > div > div {position: relative;}
+#skillset > div > div {
+    position: relative;
+}
 
 #skillset span {
     width:  120px;

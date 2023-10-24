@@ -1,1 +1,21 @@
 .circle {border-radius: 50%;}
+
+.eins-modal-close-button{
+    background-color: var(--secondary);
+    color: var(--white);
+    margin: 3rem;
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.project__image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all ease .3s;
+}

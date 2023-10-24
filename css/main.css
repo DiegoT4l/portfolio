@@ -12,3 +12,15 @@
     --black2: #2a2b2b;
 }
 html {scroll-behavior: smooth;}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */    
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 0;
+}

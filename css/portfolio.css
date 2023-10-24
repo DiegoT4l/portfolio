@@ -1,17 +1,35 @@
+.container {
+    width: min(85%, 120rem);
+    margin: 0 auto;
+}
+
 #portfolio button {
     display: block;
     position: relative;
     margin: 1rem auto;
-    max-width: 400px;
     overflow: hidden;
     box-shadow: 0 0 10px var(--gray2);
     padding: 0;
     border:  none;
     cursor: zoom-in;
 }
-
+@media (min-width: 768px) {
+    #portfolio button {
+        display: block;
+        position: relative;
+        margin: 2rem auto;
+        max-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 10px var(--gray2);
+        padding: 0;
+        border:  none;
+        cursor: zoom-in;
+    }
+    
+}
 #portfolio img {
     display: block;
+    width: 100%;
     max-height: 300px;
     transition: transform ease .3s;
 }
