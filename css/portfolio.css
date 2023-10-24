@@ -18,6 +18,7 @@
         display: block;
         position: relative;
         margin: 2rem auto;
+        max-height: 300px;
         max-width: 400px;
         overflow: hidden;
         box-shadow: 0 0 10px var(--gray2);
@@ -30,7 +31,7 @@
 #portfolio img {
     display: block;
     width: 100%;
-    max-height: 300px;
+    height: 100%;
     transition: transform ease .3s;
 }
 
