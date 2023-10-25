@@ -12,11 +12,11 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, "dist"),
-        assetModuleFilename: 'assets/[hash][ext][query]',
+        assetModuleFilename: 'assets/[contenthash][ext][query]',
         clean: false
     },
     plugins: [
-        new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
+        new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
         }),
