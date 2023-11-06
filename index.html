@@ -11,7 +11,7 @@
     <meta name="author" content="Diego Talamantes">
     <meta property="og:site_name" content="Diego T4l - Desarrollador Web">
     <meta property="og:url" content="https://www.diegot4l.com">
-    <meta property="og:image" content="./assets/img/logos/large.png">
+    <meta property="og:image" href="./assets/img/logos/large.png">
 
     <link rel="shortcut icon" href="./assets/img/logos/small.png" type="image/x-icon">
 
@@ -21,6 +21,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
     </style>
 
+    <!-- Para verlo de manera local, descomenta las siguientes lineas: -->
     <!-- <link rel="stylesheet" href="css/index.css">
     <script defer src="js/main.js"></script>
     <script defer src="node_modules/eins-modal/dist/js/eins-modal.min.js"></script> -->
@@ -167,7 +168,15 @@
     <div id="myModal" class="eins-modal eins-modal-lg">
         <div class="eins-modal-content">
             <div class="eins-modal-close"></div>
-            <div id="modalContent"><!-- content --></div>
+            <div id="modalContent">
+                <div class="project__image">
+                    <img class="hidden" id="imageLKG" src="./assets/img/portfolio/1.png" alt="License Key Generator">
+                    <img class="hidden" id="imageBlogCafe" src="./assets/img/portfolio/2.png" alt="BlogdeCafe">
+                </div>
+                <div class="project__info">
+
+                </div>
+            </div>
         </div>
     </div>
 </body>

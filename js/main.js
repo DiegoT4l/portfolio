@@ -60,25 +60,36 @@
         projectElement.classList.add('project');
 
         if (!projectSelected) {
+            const imageCafeBlog = document.querySelector('#imageBlogCafe')
+            const imageLKG = document.querySelector('#imageLKG')
+            imageCafeBlog.classList.add('hidden');
+            imageLKG.classList.add('hidden');
             projectElement.innerHTML = `
                 <h3 class="project__title" style="color: red;">Error</h3>
                 <p class="project__description">No se encontró el proyecto, intenta de nuevo.</p>
             `;
             return projectElement;
         }
+        if (projectSelected.title === 'License Key Generator') {
+            const imageCafeBlog = document.querySelector('#imageBlogCafe')
+            const imageLKG = document.querySelector('#imageLKG')
+            imageCafeBlog.classList.add('hidden');
+            imageLKG.classList.remove('hidden');
+        }
+        else if (projectSelected.title === 'Blog de Cafe') {
+            const imageCafeBlog = document.querySelector('#imageBlogCafe')
+            const imageLKG = document.querySelector('#imageLKG')
+            imageCafeBlog.classList.remove('hidden');
+            imageLKG.classList.add('hidden');
+        }
 
         projectElement.innerHTML = `
-            <div class="project__image">
-                <img src="${projectSelected.image}" alt="${projectSelected.title}">
-            </div>
-            <div class="project__info">
                 <h3 class="project__title">${projectSelected.title}</h3>
                 <p class="project__description">${projectSelected.description}</p>
                 <div class="project__links">
                     <a href="${projectSelected.url}" target="_blank" class="project__link">Ver</a>
                     <a href="${projectSelected.github}" target="_blank" class="project__link">Código</a>
                 </div>
-            </div>
         `;
         return projectElement;
     }
@@ -86,7 +97,7 @@
     function renderProject(projectId, projects) {
         const projectSelected = getProjectofPortfolio(projectId, projects);
         const projectElement = createProject(projectSelected);
-        const projectsContainer = document.querySelector('#modalContent');
+        const projectsContainer = document.querySelector('.project__info');
 
         projectsContainer.innerHTML = ''; // Limpiamos el contenedor
         projectsContainer.appendChild(projectElement); // Agregamos el proyecto
