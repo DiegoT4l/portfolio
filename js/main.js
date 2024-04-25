@@ -1,37 +1,37 @@
+// Función para agregar o quitar la clase 'open' al hacer clic en el botón de hamburguesa
 (function () {
-    let navbar = document.querySelector('#navbar');
-    let hamburger = document.querySelector('#hamburger');
+    const navbar = document.querySelector('#navbar');
+    const hamburger = document.querySelector('#hamburger');
 
     hamburger.addEventListener('click', () => {
         navbar.classList.toggle('open');
     });
 })();
 
-//  Menu Fijo
+// Función para fijar el menú de navegación
 (function () {
-    let navbar = document.querySelector('#navbar');
-    let main = document.querySelector('main');
-    let navbarHeight = navbar.getBoundingClientRect().height;
-    let breakpoint = main.offsetTop - navbarHeight;
+    const navbar = document.querySelector('#navbar');
+    const main = document.querySelector('main');
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const breakpoint = main.offsetTop - navbarHeight;
     let isFixed = false;
 
     let windowPos;
-    function updatePos() {windowPos = window.scrollY;}
+    function updatePos() {
+        windowPos = window.scrollY;
+    }
 
     function onScroll() {
         updatePos();
 
         if (windowPos >= breakpoint && !isFixed) {
             navbar.classList.remove('open');
-
             navbar.classList.add('navbar-fixed');
-            main.style.cssText = "margin-top: " + navbarHeight + 'px;';
-
+            main.style.cssText = `margin-top: ${navbarHeight}px;`;
             isFixed = true;
-        }
-        else if (windowPos < breakpoint && isFixed) {
+        } else if (windowPos < breakpoint && isFixed) {
             navbar.classList.remove('navbar-fixed');
-            main.style.cssText = "margin-top: " + 0;
+            main.style.cssText = 'margin-top: 0';
             isFixed = false;
         }
     }
@@ -39,7 +39,8 @@
     document.addEventListener('scroll', onScroll);
 })();
 
-(function () {
+// Función para obtener los proyectos desde un archivo JSON
+(async function () {
     async function getProjectsFromJSON(callback) {
         try {
             const response = await fetch('./projects.json');
@@ -51,8 +52,7 @@
     }
 
     function getProjectofPortfolio(project, projects) {
-        const projectSelected = projects[project];
-        return projectSelected;
+        return projects[project];
     }
 
     function createProject(projectSelected) {
@@ -60,36 +60,20 @@
         projectElement.classList.add('project');
 
         if (!projectSelected) {
-            const imageCafeBlog = document.querySelector('#imageBlogCafe')
-            const imageLKG = document.querySelector('#imageLKG')
-            imageCafeBlog.classList.add('hidden');
-            imageLKG.classList.add('hidden');
             projectElement.innerHTML = `
                 <h3 class="project__title" style="color: red;">Error</h3>
                 <p class="project__description">No se encontró el proyecto, intenta de nuevo.</p>
             `;
             return projectElement;
         }
-        if (projectSelected.title === 'License Key Generator') {
-            const imageCafeBlog = document.querySelector('#imageBlogCafe')
-            const imageLKG = document.querySelector('#imageLKG')
-            imageCafeBlog.classList.add('hidden');
-            imageLKG.classList.remove('hidden');
-        }
-        else if (projectSelected.title === 'Blog de Cafe') {
-            const imageCafeBlog = document.querySelector('#imageBlogCafe')
-            const imageLKG = document.querySelector('#imageLKG')
-            imageCafeBlog.classList.remove('hidden');
-            imageLKG.classList.add('hidden');
-        }
 
         projectElement.innerHTML = `
-                <h3 class="project__title">${projectSelected.title}</h3>
-                <p class="project__description">${projectSelected.description}</p>
-                <div class="project__links">
-                    <a href="${projectSelected.url}" target="_blank" class="project__link">Ver</a>
-                    <a href="${projectSelected.github}" target="_blank" class="project__link">Código</a>
-                </div>
+            <h3 class="project__title">${projectSelected.title}</h3>
+            <p class="project__description">${projectSelected.description}</p>
+            <div class="project__links">
+                <a href="${projectSelected.url}" target="_blank" class="project__link">Ver</a>
+                <a href="${projectSelected.github}" target="_blank" class="project__link">Código</a>
+            </div>
         `;
         return projectElement;
     }
@@ -99,14 +83,14 @@
         const projectElement = createProject(projectSelected);
         const projectsContainer = document.querySelector('.project__info');
 
-        projectsContainer.innerHTML = ''; // Limpiamos el contenedor
-        projectsContainer.appendChild(projectElement); // Agregamos el proyecto
+        projectsContainer.innerHTML = '';
+        projectsContainer.appendChild(projectElement);
     }
 
-    getProjectsFromJSON(function(projects) {
+    getProjectsFromJSON(function (projects) {
         const projectLinks = document.querySelectorAll('.project__button');
 
-        projectLinks.forEach(projectLink => { // Agregamos el evento a cada link
+        projectLinks.forEach(projectLink => {
             projectLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 const projectId = e.target.dataset.project;
